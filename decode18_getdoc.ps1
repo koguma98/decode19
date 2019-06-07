@@ -1,23 +1,28 @@
-#É_ÉEÉìÉçÅ[ÉhêÊÇéwíËÇµÇƒÇÀ
-$saveDirectory = "d:\decode2018_doc\"
+#„ÉÄ„Ç¶„É≥„É≠„Éº„ÉâÂÖà„ÇíÊåáÂÆö„Åó„Å¶„Å≠
+$saveDirectory = "c:\decode2019_doc\"
 
 $client = New-Object System.Net.WebClient
-$downloadUrl = "https://eventmarketing.blob.core.windows.net/decode2018-after/"
+$downloadUrl = "https://eventmarketing.blob.core.windows.net/decode2019-after/"
 
-# ë∂ç›Ç∑ÇÈÉZÉbÉVÉáÉì(ÉTÉCÉgÇ©ÇÁÇ‘Ç¡Ç±î≤Ç¢ÇΩÇ‚Ç¬Åj
+# Â≠òÂú®„Åô„Çã„Çª„ÉÉ„Ç∑„Éß„É≥(„Çµ„Ç§„Éà„Åã„Çâ„Å∂„Å£„ÅìÊäú„ÅÑ„Åü„ÇÑ„Å§Ôºâ
 $tracks = (
-"AI01", "AI02", "AI03", "AI04", "AI05", "AI06", "AI07", "AI08", "AI09", "AI10", "AI11", "AI12", "AI13", "AI14", "AI15", "AI16", "AI17", "AI18", "AI19", "AI51", "AI52", "AI53", "AI54", "AI55", "AI61", 
-"AC01", "AC02", "AC03", "AC04", "AC05", "AC06", "AC07", "AC08", "AC09", "AC10", "AC11", "AC12", "AC13", "AC14", "AC15", "AC16", "AC17", "AC18", "AC19", "AC20", "AC51", "AC52", "AC53", "AC61", "AC62", 
-"AD01", "AD02", "AD03", "AD04", "AD05", "AD06", "AD07", "AD08", "AD09", "AD10", "AD11", "AD12", "AD13", "AD14", "AD15", "AD16", "AD17", "AD18", "AD19", "AD20", "AD21", "AD22", "AD23", "AD24", "AD25", "AD26", "AD27", "AD28", "AD29", "AD30", "AD31", "AD32", "AD33", "AD34", "AD35", "AD36", "AD37", "AD38", "AD39", "AD40", "AD41", "AD42", "AD43", "AD44", "AD45", "AD46", "AD47", "AD51", "AD52", "AD53", "AD61", "AD62", "AD63", 
-"CI01", "CI02", "CI03", "CI04", "CI05", "CI06", "CI07", "CI08", "CI09", "CI10", "CI11", "CI12", "CI13", "CI14", "CI15", "CI16", "CI17", "CI18", "CI19", "CI20", "CI21", "CI22", "CI23", "CI24", "CI25", "CI26", "CI27", "CI28", "CI29", "CI51", "CI52", "CI53", "CI54", 
-"DA01", "DA02", "DA03", "DA04", "DA05", "DA06", "DA07", "DA08", "DA09", "DA10", "DA11", "DA12", "DA13", "DA14", "DA15", "DA16", "DA17", "DA18", "DA19", "DA20", "DA21", "DA22", "DA51", "DA52", "DA53", "DA54", "DA55", "DA56", "DA61", 
-"SP01", "SP02", "SP03", "SP04", "SP05", "SP06", "SP07", "SP08", "SP61", "SP62"
+"AI01","AI02","AI03","AI04","AI05","AI06","AI07","AI08","AI09","AI10","AI41","AI51","AI52","AI53","AI54","AI81","AI82","AI83","AI91","AI92",
+"CD01","CD02","CD03","CD04","CD05","CD06","CD07","CD08","CD09","CD10","CD11","CD12","CD13","CD14","CD41","CD42","CD43","CD44","CD51","CD52","CD53","CD61","CD62","CD63","CD64","CD65","CD66","CD67","CD68","CD69","CD70","CD71","CD81","CD82","CD83","CD84","CD91","CD92","CD93",
+"CM01","CM02","CM03","CM04","CM05","CM06","CM07","CM08","CM09","CM10","CM11","CM12","CM13","CM14","CM15","CM16","CM51","CM52","CM61","CM62","CM81","CM82","CM83","CM84","CM85","CM86",
+"DP01","DP02","DP03","DP04","DP05","DP06","DP07","DP08","DP09","DP10","DP41","DP51","DP52","DP81","DP82",
+"DT01","DT02","DT03","DT04","DT05","DT06","DT07","DT08","DT09","DT10","DT41","DT51","DT52","DT53","DT61","DT62","DT63","DT81","DT82","DT91",
+"IT01","IT02","IT03","IT04","IT05","IT06","IT07","IT51","IT52","IT53","IT82","IT83",
+"KN01",
+"MW01","MW02","MW03","MW04","MW51","MW52","MW61","MW62","MW63","MW81","MW82","MW91",
+"PR01","PR02","PR03","PR04","PR05","PR06","PR07","PR08","PR09","PR10","PR41","PR51","PR52","PR61","PR81","PR82","PR91","PR92",
+"SE01","SE02","SE03","SE04","SE05","SE06","SE07","SE51","SE81","SE82","SE91",
+"SP01","SP02","SP03","SP04","SP05","SP06","SP07","SP08","SP09","SP11","SP12","SP81","SP82","SP83"
 )
 
-#éëóøÇÃägí£éq
+#Ë≥áÊñô„ÅÆÊã°ÂºµÂ≠ê
 $exts = (".pptx", ".pdf")
 
-[System.Console]::WriteLine("Å•START")
+[System.Console]::WriteLine("‚ñºSTART")
 
 foreach ($track in $tracks) 
 {
@@ -33,13 +38,15 @@ foreach ($track in $tracks)
         {
             $pref = "PDF"
         }
-        $fileName = [string]::Format("decode2018_{0}_{1}{2}", $pref, $track, $ext)
+# decode19_PPT_CD06.pptx
+# decode19_PDF_CD06.pdf
+        $fileName = [string]::Format("decode19_{0}_{1}{2}", $pref, $track, $ext)
 
         try 
         {
             $client.DownloadFile([System.IO.Path]::Combine($downloadUrl, $fileName), [System.IO.Path]::Combine($saveDirectory, $fileName))
             $compCount++
-            [System.Console]::WriteLine("Åõ: " + $fileName)
+            [System.Console]::WriteLine("‚óã: " + $fileName)
             break
         }
         catch
@@ -48,7 +55,7 @@ foreach ($track in $tracks)
     }
     if($compCount -eq 0)
     {
-        [System.Console]::WriteLine("Å~: " + $track)
+        [System.Console]::WriteLine("√ó: " + $track)
     }
 }
-[System.Console]::WriteLine("Å£END")
+[System.Console]::WriteLine("‚ñ≤END")
